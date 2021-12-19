@@ -1,0 +1,1 @@
+1. Input has a size less than the window

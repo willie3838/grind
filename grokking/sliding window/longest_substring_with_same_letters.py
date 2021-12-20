@@ -33,6 +33,9 @@ Edge
 
 
  String="aabccbb", k=2
+
+ TC: O(n)
+ SC: O(1)
 '''
 
 def longestSubstring(str, k):

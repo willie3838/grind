@@ -30,7 +30,7 @@ def smallest(arr, s):
     res = float('inf')
     for end,num in enumerate(arr):
         summ += num
-        if summ >= s:
+        while summ >= s:
             res = min(res, end-start+1)
             summ -= arr[start]
             start += 1

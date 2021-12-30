@@ -42,10 +42,12 @@ def subarray(nums, target):
         
         tmp = deque()
         # O(n)
+        '''
+        pretty cool how this prevents duplicates by reversing how the input gets put into the deque
+        '''
         for i in range(end, start-1, -1):
             tmp.appendleft(nums[i])
             res.append(list(tmp))
-        print(tmp, res)
     return res
 
 print(subarray([2,5,3,10], 30))

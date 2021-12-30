@@ -17,11 +17,8 @@ Input: [2, 2, 0, 1, 2, 0]
 Output: [0 0 1 2 2 2 ]
 
 Approach
-- two pointers
-- if right lands on 0, we swap with left
-- if right is already on 2, keep moving
-- if left lands on 2 we swap with right
-- if left is already on 0, keep moving
+- two pointers to keep track of where 0s are and 2s are
+- edge case is if we swap a 2 and 0.
 
 
 2,0,2,1,1,0
@@ -33,7 +30,7 @@ TC: O(n)
 SC: O(1)
 '''
 
-def dutch(arr):
+def dutch(nums):
     left = 0
     right = len(nums)-1
     i = 0

@@ -22,14 +22,57 @@ Explanation: The array does not have any cycle.
 TC: O(n)
 SC: O(1)
 '''
-def circularArrayLoop(self, nums: List[int]) -> bool:
-        for i,num in enumerate(nums):
-            mark = str(i)
-            while type(nums[i]) == int and num * nums[i] > 0 and nums[i] % len(nums) != 0:
-                jump = nums[i]
-                nums[i] = mark
-                i = (i + jump)%len(nums)
+# def circularArrayLoop(self, nums: List[int]) -> bool:
+#         for i,num in enumerate(nums):
+#             mark = str(i)
+#             while type(nums[i]) == int and num * nums[i] > 0 and nums[i] % len(nums) != 0:
+#                 jump = nums[i]
+#                 nums[i] = mark
+#                 i = (i + jump)%len(nums)
             
-            if nums[i] == mark:
-                return True
-        return False
+#             if nums[i] == mark:
+#                 return True
+#         return False
+
+
+def mergeSort(nums):
+
+    if len(nums) == 1:
+        return nums
+
+    start = 0
+    end = len(nums)
+    mid = (start+end)//2
+
+    left = mergeSort(nums[start:mid])
+    right = mergeSort(nums[mid:end])
+    
+
+    return merge(left, right)
+
+def merge(left, right):
+    i = 0
+    j = 0
+
+    res = []
+
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            res.append(left[i])
+            i += 1
+        else:
+            res.append(right[j])
+            j += 1
+    
+    while i < len(left):
+        res.append(left[i])
+        i += 1
+    
+    while j < len(right):
+        res.append(right[j])
+        j += 1
+    
+    return res
+
+
+print(mergeSort([5,4,3,2,1]))

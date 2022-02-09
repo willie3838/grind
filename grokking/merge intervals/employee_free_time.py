@@ -21,29 +21,50 @@ Input: Employee Working Hours=[[[1,3]], [[2,4]], [[3,5], [7,9]]]
 Output: [5,7]
 Explanation: All employess are free between [5,7].
 '''
-import heapq
+'''
+[1,3], [2,4], [6,8], [9,12]
+'''
 def freeTime(hours):
-
-    tmp1= []
-    for i in range(len(hours)):
-        for h in hours[i]:
-           tmp1.append(h)
+    all = []
+    # O(n*k)
+    for h in hours:
+        all.extend(h)
     
-    tmp1.sort()
-
-    tmp2 = []
-
-    for h in tmp1:
-        if not tmp2 or h[0] > tmp2[-1][1]:
-            tmp2.append(h)
-        else:
-            tmp2[-1][0] = min(tmp2[-1][0], h[0])
-            tmp2[-1][1] = max(tmp2[-1][1], h[1])
     res = []
-    
-    for i in range(1, len(tmp2)):
-        res.append([tmp2[i-1][1], tmp2[i][0]])
-    return res
+    # O( (n*k) log (n*k))
+    all.sort()
+    prevEnd = all[0][1]
 
-print(freeTime([[[1,3], [5,6]], [[2,3], [6,8]]]))
+    # O(n*k)
+    for h in all:
+        if h[0] > prevEnd:
+            res.append([prevEnd, h[0]])
+        prevEnd = max(prevEnd, h[1])
+    return res
+    # tmp1= []
+    # # O(n x k)
+    # for i in range(len(hours)):
+    #     for h in hours[i]:
+    #        tmp1.append(h)
+    
+    # # O((n*k) log (n*k))
+    # tmp1.sort()
+
+    # tmp2 = []
+
+    # # O (n*k)
+    # for h in tmp1:
+    #     if not tmp2 or h[0] > tmp2[-1][1]:
+    #         tmp2.append(h)
+    #     else:
+    #         tmp2[-1][0] = min(tmp2[-1][0], h[0])
+    #         tmp2[-1][1] = max(tmp2[-1][1], h[1])
+    # res = []
+    
+    # # O(n*k)
+    # for i in range(1, len(tmp2)):
+    #     res.append([tmp2[i-1][1], tmp2[i][0]])
+    # return res
+
+print(freeTime([[[1,3]], [[2,4]], [[3,5], [7,9]]]))
 print(freeTime([[[1,3], [9,12]], [[2,4]], [[6,8]]]))

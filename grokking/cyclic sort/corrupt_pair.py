@@ -17,19 +17,19 @@ Output: [3, 5]
 Explanation: '3' is duplicated and '5' is missing.
 '''
 def findCorrupt(arr):
-    res = []
-    for i in range(len(arr)):
-        value = abs(arr[i])-1
-        if arr[value] < 0:
-            res.append(value+1)
+    i = 0
+    while i < len(arr):
+        j = arr[i]-1
+        if arr[i] != arr[j]:
+            arr[i], arr[j] = arr[j], arr[i]
         else:
-            arr[value] *= -1
+            i += 1
     
-    for i,num in enumerate(arr):
-        if num > 0:
-            res.append(i+1)
-            return res
-    return res
+    for i in range(len(arr)):
+        if arr[i] != i + 1:
+            return [arr[i],i+1]
+    print(arr)
+    
 
 print(findCorrupt([3, 1, 2, 5, 2]))
 print(findCorrupt([3, 1, 2, 3, 6, 4]))

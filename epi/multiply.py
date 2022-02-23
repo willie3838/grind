@@ -41,7 +41,8 @@ x=0001,y=1100,rs=1111
 2x3 = 6
 
 All integers can be represented with base 2... So we can break it down further and multiply
-the integer by bits instead of the whole number.
+the integer by bits instead of the whole number. This is sort of like how we do long multiplication
+and multiply by the digits first then add everything up
 
 Basically how this works is that we add (2^k)*y to the result every time x's kth bit is 1.
 '''

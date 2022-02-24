@@ -35,3 +35,4 @@ def pow(x,y):
     # return x
 
 print(pow(3,6))
+print(2 & 1 << 0)

@@ -29,7 +29,7 @@ res=1,i=1
 res=10,i=2
 res=100,i=3
 
-
+k=1*2^i ... n
 '''
 def generateRandom(a, b):
     n = b-a+1
@@ -55,4 +55,4 @@ def generateRandom(a, b):
     #         break
     # return res
 
-print(generateRandom(1,6))
+print(generateRandom(1,2147483647))

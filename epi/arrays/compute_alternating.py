@@ -17,7 +17,18 @@ what if the array isn't sorted...
 '''
 
 
+'''
+    Proof by contradiction:
+
+    Assuming that the algorithm doesn't produce an alternating array...
+
+    Suppose that there's an odd index i such that A[i] >= A[i+1] in the array. 
+    This is impossible because in line 38 and 39, we make sure that A[i] will be < A[i+1]
+
+
+    Can usually prove by contradiction to show a f
  
+'''
 
 def makeAlternate(arr):
 

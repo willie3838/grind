@@ -38,6 +38,7 @@ def rotate(arr):
         right -= 1
     return arr
 
+print(~1)
 print(rotate(
     [
         [1,2,3],

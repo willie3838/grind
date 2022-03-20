@@ -2,7 +2,7 @@
 
 1 -> 3 -> 4
      6 <- 5
-
+TC: O(F+C) where F is the number of nodes and C is the length of the cycle
 '''
 
 def isCyclic(head):

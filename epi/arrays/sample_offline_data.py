@@ -12,8 +12,8 @@ probability ball is 3rd: n-1/n * n-2/n-1 *1/n-2 = 1/n
 This is essentially what the algorithm is doing
 '''
 def sample(arr, n):
-    for i in range(n):
-        rdm = random.randrange(0,len(arr))
+    for i in range(n-1, 0, -1):
+        rdm = random.randrange(0,i+1)
         arr[i], arr[rdm] = arr[rdm], arr[i]
     return arr[:n]
 

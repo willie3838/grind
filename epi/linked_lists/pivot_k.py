@@ -44,7 +44,7 @@ def pivot(head, k):
         head = head.next
     currG.next = None
     
-    currL.next = currE
+    currL.next = dummyE.next
     currE.next = dummyG.next
     return dummyL.next
 

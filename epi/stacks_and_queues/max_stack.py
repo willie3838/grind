@@ -97,3 +97,11 @@ stack.popMax()
 print(stack.max())
 stack.popMax()
 print(stack.max())
+
+'''
+
+[10,5,100]
+[10,100]
+
+
+'''

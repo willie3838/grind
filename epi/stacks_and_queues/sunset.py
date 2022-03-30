@@ -17,12 +17,12 @@ SC: O(n)
 '''
 def canSeeSunset(buildings):
     res = []
-
-    for i in range(len(buildings)-1,-1,-1):
-        while res and buildings[i] >= res[-1]:
-            res.pop()
-        res.append(buildings[i])
-    return res
+    
+    # for i in range(len(buildings)-1,-1,-1):
+    #     while res and buildings[i] >= res[-1]:
+    #         res.pop()
+    #     res.append(buildings[i])
+    # return res
 
 print(canSeeSunset([1,2,5,2,3]))
 print(canSeeSunset([1,2,3]))

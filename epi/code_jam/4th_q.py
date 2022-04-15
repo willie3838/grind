@@ -9,7 +9,6 @@ from sys import stdin, stdout
 from collections import defaultdict
 
 T = int(input())
-
 for test in range(1, T+1):
     N = int(input())
     F = [0] + [int(x) for x in stdin.readline().split()]

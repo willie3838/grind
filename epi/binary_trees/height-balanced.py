@@ -11,17 +11,20 @@ class TreeNode:
   5   6
 
 '''
-def isBalanced(self, root: Optional[TreeNode]) -> bool:
-    return self.helper(root)[0]
-    
-def helper(self, root):
+def isHeightBalanced(root):
+    return helper(root)
+
+
+def helper(root):
     if not root:
-        return (True, -1)
+        return 0
 
-    left = self.helper(root.left)
-    right = self.helper(root.right)
-    
-    if not left[0] or not right[0]:
-        return (False, 0)
+    left = helper(root.left)
+    right = helper(root.right)
 
-    return (abs(left[1] + 1 - right[1] - 1) <= 1, max(left[1]+1, right[1]+1))
+    if left == -1 or right == -1:
+        return -1
+    if abs(left-right) > 1:
+        return -1
+
+    return max(left, right) + 1

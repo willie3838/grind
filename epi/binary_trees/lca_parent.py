@@ -4,6 +4,8 @@ class TreeNode:
         self.left = left
         self.right = right
 
+# TC: O(n)
+# SC: O(n)
 
 def findLCA(root, p, q):
     parents = {}

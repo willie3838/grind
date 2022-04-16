@@ -23,12 +23,20 @@ def findLCA(root, p, q):
     return helper(root, None, p, q)[1]
 
 '''
+
 this function takes advantage of the following cases:
 - if the two nodes are in the same subtree, the LCA the node with the highest height  (assuming we're traversing from bottom-up)
 - if the two nodes are in different subtrees, the LCA is the current node (assuming we're traversing from bottom-up)
 
 TC: O(n) where n is the number of nodes 
 SC: O(h) where h is the height of the tree
+
+
+notes:
+- LCA can be broken down into the case: if the two nodes are in different subtrees, the root is the LCA. or if the
+current node is one of the nodes then that becomes the LCA.
+otherwise, need to traverse in the subtree where they're both present and check if they're in different subtrees
+or the current node is a target
 '''
 def helper(root, p, q):
     if not root:

@@ -16,6 +16,15 @@ class TreeNode:
 
       preorder: 1,2,4,5,3
 
+    root -> left -> right
+    postorder: left -> right -> root which is the opposite of root -> right -> left
+    recursive call stack:
+
+    [1,2,4]
+
+    iterative call stack:
+    [3,5,4]
+
 
         1
       2   3
@@ -24,15 +33,13 @@ class TreeNode:
     preorder: 1,2,3
     '''
     def preorder(root):
-        stack = []
+        stack = [root]
         res = []
 
-        while stack or root:
-            if root:
-                res.append(root.val)
-                stack.append(root)
-                root = root.left
-            else:
-                node = stack.pop()
-                root = node.right
+        while stack:
+            node = stack.pop()
+            if node:
+                res.append(node.val)
+                stack.append(node.right)
+                stack.append(node.left)
         return res

@@ -58,33 +58,46 @@ Preorder: [1,2,3]
 '''
 def buildTree(self, preorder, inorder):
 
-    # construct hashmap mapping a value to its inorder index
-    idx = {} 
-    for i, val in enumerate(inorder):
-        idx[val] = i 
+    # # construct hashmap mapping a value to its inorder index
+    # idx = {} 
+    # for i, val in enumerate(inorder):
+    #     idx[val] = i 
 			
-	# Iterate over preorder and construct the tree 
-    stack = []
-    head = None
-    for val in preorder:
-        if not head:
-            head = TreeNode(val)
-            stack.append(head)
-        else:
-            node = TreeNode(val)
-            if idx[val] < idx[stack[-1].val]:
-                stack[-1].left = node
-            else:
-                while stack and idx[stack[-1].val] < idx[val]:
-                    u = stack.pop()
-                u.right = node
-            stack.append(node)
-    return head
-    # if inorder and preorder:
-    #     popped = preorder.pop(0)
-    #     root = TreeNode(popped)
-    #     i = inorder.index(root.val)
-    #     root.left = self.buildTree(preorder, inorder[:i])
-    #     root.right = self.buildTree(preorder, inorder[i+1:])
-    #     return root
-    # return None
+	# # Iterate over preorder and construct the tree 
+    # stack = []
+    # head = None
+    # for val in preorder:
+    #     if not head:
+    #         head = TreeNode(val)
+    #         stack.append(head)
+    #     else:
+    #         node = TreeNode(val)
+    #         if idx[val] < idx[stack[-1].val]:
+    #             stack[-1].left = node
+    #         else:
+    #             while stack and idx[stack[-1].val] < idx[val]:
+    #                 u = stack.pop()
+    #             u.right = node
+    #         stack.append(node)
+    # return head
+
+    '''
+        1
+    2       3
+
+    inorder: [2,1,3]
+    preordeR: [1,2,3]
+
+    solve the problem using subproblems... 
+    constructs the root using preorder 
+    constructs the left and right subtrees by finding smaller subtrees
+    
+    '''
+    if inorder and preorder:
+        popped = preorder.pop(0)
+        root = TreeNode(popped)
+        i = inorder.index(root.val)
+        root.left = self.buildTree(preorder, inorder[:i])
+        root.right = self.buildTree(preorder, inorder[i+1:])
+        return root
+    return None

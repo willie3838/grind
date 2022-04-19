@@ -17,6 +17,9 @@ preorder: [1,2,null,null,3,null,null]
 
 
 preorder: [1,2,4,null,null,5,null,null,3,null,null]
+
+TC: O(n)
+SC: O(n)
 '''
 def reconstruct(preorder):
     root = preorder.pop(0)

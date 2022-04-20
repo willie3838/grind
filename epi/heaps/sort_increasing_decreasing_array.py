@@ -1,6 +1,9 @@
 '''
 [5,3,2,1,100,1000]
 
+
+TC: O(n log k)
+SC: O(k)
 '''
 
 import heapq

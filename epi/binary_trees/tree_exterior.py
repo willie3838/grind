@@ -7,7 +7,7 @@ class TreeNode:
 
 '''
     1
-   2
+   2  4
   3
 
 TC: O(n) where n is the number of nodes

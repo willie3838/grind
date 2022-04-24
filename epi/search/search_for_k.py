@@ -8,17 +8,28 @@ SC: O(1)
 '''
 def searchForK(arr, k):
     l,r = 0, len(arr)-1
-
-
-    while l < r:
-        # no overflow bc python has no limit for its integer
+    ans = -1
+    while l <= r:
         mid = (l+r)//2
-
-        if arr[mid] < k:
-            l = mid + 1
+        if arr[mid] == k:
+            ans = mid
+            r = mid-1
+        elif k < arr[mid]:
+            r = mid - 1
         else:
-            r = mid
-    return l if arr[l] == k else -1
+            l = mid + 1
+    return ans
+
+
+    # while l < r:
+    #     # no overflow bc python has no limit for its integer
+    #     mid = (l+r)//2
+
+    #     if arr[mid] < k:
+    #         l = mid + 1
+    #     else:
+    #         r = mid
+    # return l if arr[l] == k else -1
 
 
     # # cheating way

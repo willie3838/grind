@@ -3,6 +3,9 @@ import random
 '''
 [1,2,3], k = 2
 
+
+Average case: O(n) since we'll be splitting the array into halves each time...
+Worst case: O(n^2) since we'll consistently pick the largest and we want to find the smallest....
 '''
 def findKthLargest(arr, k):
     l,r = 0,len(arr)-1

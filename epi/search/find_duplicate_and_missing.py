@@ -21,4 +21,8 @@ def findDuplicateAndMissing(arr):
             return (n, duplicate)
 
 
+hashh = {}
+arr = [0,1]
+hashh[arr] = 1
+print(hashh)
 print(findDuplicateAndMissing([0,1,2,2]))

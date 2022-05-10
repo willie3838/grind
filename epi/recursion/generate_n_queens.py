@@ -1,6 +1,6 @@
 
 # TC: O(n!)
-# SC: O(n!)
+# SC: O(nxn)
 # this is because of the loop that's being called recursively
 def generateNQueens(n):
     board = [[0]*n for _ in range(n)]

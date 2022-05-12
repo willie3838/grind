@@ -15,9 +15,12 @@ class Iterator:
 
 
 
-arr = [1,2,3]
-it = Iterator(arr)
+def test():
+    arr = [1,2,3]
+    it = Iterator(arr)
 
-for _ in range(4):
-    print(it.next())
-    print(it.hasNext())
+    for _ in range(4):
+        print(it.next())
+        print(it.hasNext())
+
+test()

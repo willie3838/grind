@@ -1,6 +1,7 @@
 
 '''
-TC: O(2^n * n)
+TC: O(n) where n is the number of valid parenthesis 
+SC: O(n) where n is the number of valid parenthesis
 '''
 def generateParenthesis(n):
     res = []
@@ -8,17 +9,14 @@ def generateParenthesis(n):
     return res
 
 def helper(n, left, right, path, res):
-    if (left+right)//2 > n:
+    if right > left or left > n//2:
         return
-    if (left+right)//2 == n and isMatch(path):
+    if left == n//2 and right == n//2:
         res.append(path)
         return
 
-    if left <= right:
-        helper(n, left+1, right, path+"(", res)
-    else:
-        helper(n, left+1, right, path+"(", res)
-        helper(n, left, right+1, path+")", res)
+    helper(n, left+1, right, path+"(", res)
+    helper(n, left, right+1, path+")", res)
 
 
 def isMatch(path):
